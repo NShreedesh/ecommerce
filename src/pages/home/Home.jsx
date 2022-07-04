@@ -15,9 +15,9 @@ function Home() {
   }, []);
 
   return (
-    <div>
+    <div class="flex flex-col items-center justify-center">
       <h1 className="mt-5 mb-6 text-3xl font-bold">Products</h1>
-      <div className="flex flex-wrap justify-around gap-x-4 gap-y-10">
+      <div className="flex flex-wrap justify-center shrink-1 gap-x-10 gap-y-10">
         {products.map((product) => {
           return <Products key={product.id} product={product} />;
         })}
