@@ -4,10 +4,10 @@ function Products(props) {
   const { product } = props;
 
   return (
-    <div className="flex flex-col items-center justify-between flex-grow-0 px-10 py-10 shadow-sm cursor-pointer w-72 shadow-gray-400 rounded-xl hover:shadow-2xl hover:shadow-slate-900">
+    <div className="flex flex-col items-center justify-between gap-4 px-10 py-5 transition-all border border-gray-400 border-solid shadow-sm cursor-pointer hover:scale-x-110 hover:scale-y-110 flex-grow-1 w-72 shadow-gray-400 rounded-xl hover:shadow-xl hover:shadow-slate-900">
       <img className="w-32 h-32" src={`${product.image}`} alt="" />
-      <div className="flex items-start gap-10">
-        <p className="font-semibold">{product.title}</p>
+      <div className="flex items-start w-full gap-5">
+        <p className="font-semibold truncate">{product.title}</p>
         <p className="font-semibold text-green-700">{`$${product.price}`}</p>
       </div>
     </div>
