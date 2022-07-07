@@ -5,7 +5,8 @@ async function GetAllProducts() {
   try {
     response = await axios.get(`https://fakestoreapi.com/products`);
   } catch (err) {
-    console.log(err.message);
+    response.err = err.message;
+    return response;
   }
   return response.data;
 }
@@ -15,7 +16,8 @@ async function GetSingleProduct(id) {
   try {
     response = await axios.get(`https://fakestoreapi.com/products/${id}`);
   } catch (err) {
-    console.log(err.message);
+    response.err = err.message;
+    return response;
   }
   return response.data;
 }

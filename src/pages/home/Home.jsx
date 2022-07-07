@@ -21,7 +21,7 @@ function Home() {
   }, []);
 
   return !isLoading ? (
-    products.length > 0 ? (
+    products.length > 0 && !products.err ? (
       <div className="flex flex-col items-center justify-center">
         <h1 className="mt-5 mb-6 text-4xl font-bold underline ">
           Products In Stock
@@ -35,7 +35,7 @@ function Home() {
     ) : (
       <div>
         <h1 className="text-3xl font-bold text-center text-red-500">
-          Something went Wrong...
+          {products.err || "Empty Products"}
         </h1>
       </div>
     )
