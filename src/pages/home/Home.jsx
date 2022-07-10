@@ -3,8 +3,6 @@ import { ThreeDots } from "react-loader-spinner";
 import { GetAllProducts } from "../../components/apifetch/ApiFetch";
 import Products from "../../components/products/Products";
 
-import "./home.scss";
-
 function Home() {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);

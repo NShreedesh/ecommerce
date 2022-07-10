@@ -1,0 +1,5 @@
+.details-button {
+  @apply py-2 text-lg font-semibold text-white transition-[background-color] duration-300 ease-linear 
+  bg-green-500 rounded-md hover:bg-transparent hover:outline hover:outline-2 hover:outline-green-500
+  hover:text-green-500;
+}

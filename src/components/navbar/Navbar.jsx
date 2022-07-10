@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 
-import "./navbar.scss";
-
 import navLinks from "../../data/navbar/navbar.js";
 import { Link } from "react-router-dom";
 
@@ -15,7 +13,8 @@ function Navbar() {
   return (
     <nav
       className={`flex flex-col items-start justify-between px-4 py-4 text-white 
-      transition-all duration-500 bg-black ease gap-7 lg:items-center lg:flex-row lg:bg-white z-10 lg:text-black shadow-xl sticky top-0`}
+      bg-black ease gap-7 lg:items-center lg:flex-row lg:bg-white z-10 lg:text-black shadow-xl sticky top-0
+      h-full lg:h-navbar`}
     >
       <div className="flex items-center justify-between w-full">
         <div className="hover:cursor-pointer">

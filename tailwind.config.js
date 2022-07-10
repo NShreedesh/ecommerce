@@ -2,7 +2,12 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      height: {
+        navbar: "10vh",
+        bottom: "90vh",
+      },
+    },
   },
   plugins: [require("@tailwindcss/line-clamp")],
 };

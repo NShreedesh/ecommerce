@@ -3,6 +3,8 @@ import { useParams } from "react-router";
 import { GetSingleProduct } from "../../components/apifetch/ApiFetch";
 import { ThreeDots } from "react-loader-spinner";
 
+import "./details.css";
+
 function Details() {
   const params = useParams();
   const [product, setProduct] = useState({});
@@ -22,21 +24,27 @@ function Details() {
   return !isLoading ? (
     <div>
       {!product.err ? (
-        <div className="flex flex-col items-center justify-center gap-10">
-          <img className="w-32 h-32" src={`${product.image}`} alt="Product" />
-          <div className="flex justify-center gap-20 px-5 w-96 lg:w-1/2 lg:px-2">
-            <div className="flex flex-col gap-3">
-              <h1 className="font-bold">{product.title}</h1>
-              <p>{product.description}</p>
-              <div>
-                <label htmlFor="quantity">Quantity</label>
+        <div className="flex flex-col items-center justify-center gap-10 px-10 h-bottom">
+          <img className="w-52 h-52" src={`${product.image}`} alt="Product" />
+          <div className="flex max-w-xl gap-10">
+            <div className="flex flex-col gap-5">
+              <h1 className="text-lg font-bold">{product.title}</h1>
+              <p className="text-gray-500">{product.description}</p>
+              <div className="flex gap-3">
+                <label htmlFor="quantity">Quantity:</label>
                 <input
-                  className="px-1 border border-black"
+                  className="border-2 border-gray-500 w-14"
                   min={1}
+                  max={30}
+                  defaultValue={1}
                   type="number"
                   id="quantity"
                   required
                 />
+              </div>
+              <div className="flex flex-col gap-5">
+                <button className="details-button">Add To Cart</button>
+                <button className="details-button">Buy Now</button>
               </div>
             </div>
             <div>
