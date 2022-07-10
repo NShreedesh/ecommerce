@@ -16,7 +16,7 @@ function Home() {
       setProducts(products);
       setIsLoading(false);
     }
-  }, []);
+  }, [setIsLoading]);
 
   return !isLoading ? (
     products.length > 0 && !products.err ? (

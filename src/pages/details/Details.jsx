@@ -26,7 +26,7 @@ function Details() {
       setProduct(product);
       setIsLoading(false);
     }
-  }, [params.id]);
+  }, [params.id, setIsLoading]);
 
   function submit(e) {
     if (actionType === actionTypeStates.addToCart) {
@@ -42,16 +42,18 @@ function Details() {
   return !isLoading ? (
     <div>
       {!product.err ? (
-        <div className="flex flex-col items-center justify-center gap-10 px-10 h-bottom">
+        <div className="flex flex-col items-center justify-center gap-10 px-10 pt-10">
           <img className="w-52 h-52" src={`${product.image}`} alt="Product" />
           <div className="flex max-w-xl gap-10">
             <form className="flex flex-col gap-5" onSubmit={submit}>
               <h1 className="text-lg font-bold">{product.title}</h1>
-              <p className="text-gray-500">{product.description}</p>
+              <p type="" className="text-gray-500">
+                {product.description}
+              </p>
               <div className="flex gap-3">
                 <label htmlFor="quantity">Quantity:</label>
                 <input
-                  className="border-2 border-gray-500 w-14"
+                  className="px-1 border-2 border-gray-500 w-14"
                   min={1}
                   max={30}
                   defaultValue={1}
