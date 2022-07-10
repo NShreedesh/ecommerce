@@ -1,14 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { GetSingleProduct } from "../../components/apifetch/ApiFetch";
 import { ThreeDots } from "react-loader-spinner";
 
 import "./details.css";
 
+const actionTypeStates = {
+  addToCart: "addToCart",
+  buy: "buy",
+};
+
 function Details() {
   const params = useParams();
+  const navigate = useNavigate();
   const [product, setProduct] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+  const [actionType, setActionType] = useState("");
 
   useEffect(() => {
     getProduct();
@@ -21,13 +28,24 @@ function Details() {
     }
   }, [params.id]);
 
+  function submit(e) {
+    if (actionType === actionTypeStates.addToCart) {
+      navigate("/cart");
+    }
+    if (actionType === actionTypeStates.buy) {
+      navigate("/buy");
+    }
+
+    e.preventDefault();
+  }
+
   return !isLoading ? (
     <div>
       {!product.err ? (
         <div className="flex flex-col items-center justify-center gap-10 px-10 h-bottom">
           <img className="w-52 h-52" src={`${product.image}`} alt="Product" />
           <div className="flex max-w-xl gap-10">
-            <div className="flex flex-col gap-5">
+            <form className="flex flex-col gap-5" onSubmit={submit}>
               <h1 className="text-lg font-bold">{product.title}</h1>
               <p className="text-gray-500">{product.description}</p>
               <div className="flex gap-3">
@@ -42,11 +60,25 @@ function Details() {
                   required
                 />
               </div>
-              <div className="flex flex-col gap-5">
-                <button className="details-button">Add To Cart</button>
-                <button className="details-button">Buy Now</button>
+              <div className="flex flex-col gap-5 mt-5">
+                <button
+                  className="details-button"
+                  name="addtocart"
+                  onClick={() => setActionType(actionTypeStates.addToCart)}
+                  type="submit"
+                >
+                  Add To Cart
+                </button>
+                <button
+                  className="details-button"
+                  name="buy"
+                  onClick={() => setActionType(actionTypeStates.buy)}
+                  type="submit"
+                >
+                  Buy Now
+                </button>
               </div>
-            </div>
+            </form>
             <div>
               <h1 className="font-bold text-green-600">${product.price}</h1>
             </div>
