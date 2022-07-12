@@ -31,7 +31,7 @@ function Home() {
         </div>
       </div>
     ) : (
-      <div>
+      <div className="mt-10">
         <h1 className="text-3xl font-bold text-center text-red-500">
           {products.err || "Empty Products"}
         </h1>

@@ -18,7 +18,9 @@ function Navbar() {
     >
       <div className="flex items-center justify-between w-full">
         <div className="hover:cursor-pointer">
-          <h1 className="text-3xl font-bold">Brothers Store.</h1>
+          <Link to="/" className="text-3xl font-bold">
+            Brothers Store.
+          </Link>
         </div>
         <div className="cursor-pointer lg:hidden" onClick={onMenuClick}>
           <p className="font-bold tracking-wider text-gray-300">Menu</p>
